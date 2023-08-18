@@ -9,9 +9,9 @@ const Habit = require('../models/Habit');
 router.get('/', (req, res) => res.render('welcome'));
 
 //---------Dashboard GET----------//
-var email = "";
+var userEmail = "";
 router.get('/dashboard', (req, res) => {
-    email = req.query.user;
+    userEmail = req.query.user;
     User.findOne({
         email: req.query.user
     }).then(user => {
@@ -37,11 +37,11 @@ router.get('/dashboard', (req, res) => {
 
 //------------------Function to return date string--------------//
 function getD(n) {
-    let d = new Date();
-    d.setDate(d.getDate() + n);
-    var newDate = d.toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' );
+    let _date = new Date();
+    _date.setDate(_date.getDate() + n);
+    var newDate = _date.toLocaleDateString('pt-br').split( '/' ).reverse( ).join( '-' );
     var day;
-    switch (d.getDay()) {
+    switch (_date.getDay()) {
         case 0: day = 'Sun';
             break;
         case 1: day = 'Mon';
@@ -63,7 +63,7 @@ function getD(n) {
 //-------------Handle Change View: Daily <--> Weekly--------------//
 router.post('/user-view', (req, res) => {
     User.findOne({
-        email
+        email: userEmail
     })
         .then(user => {
             user.view = user.view === 'daily' ? 'weekly' : 'daily';
@@ -83,7 +83,7 @@ router.post('/user-view', (req, res) => {
 router.post('/dashboard', (req, res) => {
     const { content } = req.body;
 
-    Habit.findOne({ content: content, email: email }).then(habit => {
+    Habit.findOne({ content: content, email: userEmail }).then(habit => {
         if (habit) {
             //---------Update existing habit----------//
             let dates = habit.dates, tzoffset = (new Date()).getTimezoneOffset() * 60000;
@@ -115,7 +115,7 @@ router.post('/dashboard', (req, res) => {
             dates.push({ date: localISOTime, complete: 'none' });
             const newHabit = new Habit({
                 content,
-                email,
+                email: userEmail,
                 dates
             });
 
@@ -140,7 +140,7 @@ router.get("/favorite-habit", (req, res) => {
                 id
             ]
         },
-        email
+        email: userEmail
     })
         .then(habit => {
             habit.favorite = habit.favorite ? false : true;
@@ -209,7 +209,7 @@ router.get("/remove", (req, res) => {
                 id
             ]
         },
-        email
+        email: userEmail
     }, (err) => {
         if (err) {
             console.log("Error in deleting record(s)!");
