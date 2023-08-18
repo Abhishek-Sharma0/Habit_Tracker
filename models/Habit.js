@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const HabitSchema = new mongoose.Schema({
+const Habit_Schema = new mongoose.Schema({
     content: {
         type: String,
         required: true
@@ -21,6 +21,6 @@ const HabitSchema = new mongoose.Schema({
     timestamps: true
 });
 
-const Habit = mongoose.model('Habit', HabitSchema);
+const Habit = mongoose.model('Habit', Habit_Schema);
 
 module.exports = Habit;
