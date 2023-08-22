@@ -6,13 +6,8 @@ Welcome to the Habit Tracker Application! This web app allows users to track and
 
 - [Features](#features)
 - [Getting Started](#getting-started)
-  - [Prerequisites](#prerequisites)
-  - [Installation](#installation)
+- [Prerequisites](#prerequisites)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
-
 # Features
 
 - Add new habits with descriptions and completion statuses
