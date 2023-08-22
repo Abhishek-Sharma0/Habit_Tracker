@@ -27,7 +27,7 @@ Follow these instructions to get the project up and running on your local machin
 - MongoDB server running locally or remotely
 
 # Usage
-Visit the app in your web browser at http://localhost:3000.
-Sign up or log in to your account.
-Use the dashboard to manage your habits by adding, editing, marking as favorites, and more.
-Toggle between daily and weekly views to suit your preference.
+- Visit the app in your web browser at http://localhost:3000.
+- Sign up or log in to your account.
+- Use the dashboard to manage your habits by adding, editing, marking as favorites, and more.
+- Toggle between daily and weekly views to suit your preference.
