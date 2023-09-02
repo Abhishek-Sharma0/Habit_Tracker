@@ -16,6 +16,9 @@
   "bugs": {
     "url": ""
   },
+  "engines": {
+    "node": ">=16 <18"
+  },
   "homepage": "",
   "dependencies": {
     "connect-flash": "^0.1.1",
