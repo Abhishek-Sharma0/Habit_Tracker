@@ -5,15 +5,16 @@ const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
 
+require('dotenv').config()
 const app = express();
 
 //-----DB Config---------//
-const db = require('./config/keys').MongoURI;
-
+const db = require('./config/keys');
+db();
 //------Connect to Mongo--------//
-mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log("Connected to MongoDB successfully!"))
-    .catch(err => console.log(err));
+// mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
+//     .then(() => console.log("Connected to MongoDB successfully!"))
+//     .catch(err => console.log(err));
 
 //-----EJS---------//
 app.use(expressLayouts);
