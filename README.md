@@ -27,8 +27,9 @@ Follow these instructions to get the project up and running on your local machin
 - MongoDB server running locally or remotely
 
 # Usage
--Visit the hosted app in your web browser at Habit Tracker.
--For local development, visit the app at http://localhost:3000.
+
+- Visit the hosted app in your web browser at Habit Tracker - https://habit-tracker-snx8.onrender.com/ .
+- For local development, visit the app at http://localhost:3000.
 - Sign up or log in to your account.
 - Use the dashboard to manage your habits by adding, editing, marking as favorites, and more.
 - Toggle between daily and weekly views to suit your preference.
